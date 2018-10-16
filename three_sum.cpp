@@ -2,7 +2,6 @@
 // Created by 苗沐之 on 2018/10/14.
 //
 
-#include <iostream>
 #include "solutions.h"
 using namespace std;
 
@@ -25,8 +24,8 @@ struct Triplet{
 
     bool operator<(const Triplet& another) const {
         return firstAnchor < another.firstAnchor
-               || firstAnchor == another.firstAnchor && secondAnchor < another.secondAnchor
-               || firstAnchor == another.firstAnchor && secondAnchor == another.secondAnchor && selected < another.selected;
+               || (firstAnchor == another.firstAnchor && secondAnchor < another.secondAnchor)
+               || (firstAnchor == another.firstAnchor && secondAnchor == another.secondAnchor && selected < another.selected);
     }
 
     vector<int> transform() const{
