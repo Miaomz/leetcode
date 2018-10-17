@@ -16,4 +16,6 @@ int threeSumClosest(std::vector<int>& nums, int target);
 
 std::vector<std::string> letterCombinations(std::string digits);
 
+std::vector<std::vector<int>> fourSum(std::vector<int>& nums, int target);
+
 #endif //LEETCODE_SOLUTIONS_H
