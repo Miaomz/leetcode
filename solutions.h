@@ -18,4 +18,6 @@ std::vector<std::string> letterCombinations(std::string digits);
 
 std::vector<std::vector<int>> fourSum(std::vector<int>& nums, int target);
 
+std::vector<std::string> generateParenthesis(int n);
+
 #endif //LEETCODE_SOLUTIONS_H
