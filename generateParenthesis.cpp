@@ -4,6 +4,8 @@
 #include "solutions.h"
 using namespace std;
 
+vector<string> anotherWay(int n);
+
 bool isValid(const string& str, int remain){
     int counter = 0;
     for (auto ch: str){
@@ -15,26 +17,25 @@ bool isValid(const string& str, int remain){
     return counter <= remain && counter >= -remain;
 }
 
-vector<string> possiblePostfix(const string& prefix, int remain){
-    if (!isValid(prefix, remain)){
-        return vector<string>();
-    }
-
-    if (remain == 1){
-        string unchecked;
-        if (isValid(unchecked = prefix+')', 0)){
-            return vector<string>(1, unchecked);
-        } else {
-            return vector<string>();
-        }
-    } else {
-        vector<string> adder1 = possiblePostfix(prefix+'(', remain-1);
-        vector<string> adder2 = possiblePostfix(prefix+')', remain-1);
-        adder1.insert(adder1.end(), adder2.begin(), adder2.end());
-        return adder1;
-    }
-}
-
 vector<string> generateParenthesis(int n){
-    return possiblePostfix("(", 2*n-1);
+    vector<string> res(1, "(");
+
+    for (int i=2*n-1; i>0; i--){
+        vector<string> temp;
+        for(const string& resStr: res){
+            if (isValid(resStr, i)){
+                temp.push_back(resStr + '(');
+                temp.push_back(resStr + ')');
+            }
+        }
+        res = temp;
+    }
+
+    vector<string> result;
+    for (auto& s: res){
+        if (isValid(s, 0)){
+            result.push_back(s);
+        }
+    }
+    return result;
 }
