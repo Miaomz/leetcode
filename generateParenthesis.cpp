@@ -4,8 +4,6 @@
 #include "solutions.h"
 using namespace std;
 
-vector<string> anotherWay(int n);
-
 bool isValid(const string& str, int remain){
     int counter = 0;
     for (auto ch: str){

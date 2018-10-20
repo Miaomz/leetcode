@@ -20,4 +20,12 @@ std::vector<std::vector<int>> fourSum(std::vector<int>& nums, int target);
 
 std::vector<std::string> generateParenthesis(int n);
 
+struct ListNode {
+    int val;
+    ListNode *next;
+    explicit ListNode(int x) : val(x), next(NULL) {}
+};
+
+ListNode* mergeKLists(std::vector<ListNode*>& lists);
+
 #endif //LEETCODE_SOLUTIONS_H
